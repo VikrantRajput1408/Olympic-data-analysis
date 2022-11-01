@@ -148,8 +148,10 @@ elif user_menu == 'Country Wise Analysis':
     st.title(selected_country + " excels in following sports")
     pt = helper.country_event_heatmap(df, selected_country, selected_medal_type)
     fig, ax = plt.subplots(figsize=(20, 20))
-
-    ax = sns.heatmap(pt, annot=True, annot_kws={"size": 16})
+    try:
+        ax = sns.heatmap(pt, annot=True, annot_kws={"size": 16})
+    except:
+        st.title("No add Available")
     st.pyplot(fig)
 
     st.title("Top Athletes in " + selected_country)
