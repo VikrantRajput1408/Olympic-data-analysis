@@ -1,5 +1,5 @@
 streamlit
 plotly
 seaborn
-matplotlib
+matplotlib==3.6.1
 scipy

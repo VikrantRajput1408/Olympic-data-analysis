@@ -40,7 +40,9 @@ def fetch_medal_tally(df, year, country):
         temp_df = medal_df[(medal_df['Year'] == year) & (medal_df['region'] == country)]
         x = temp_df.groupby('region').sum()[['Gold', "Silver", "Bronze"]].sort_values(['Gold', 'Silver', 'Bronze'],
                                                                                       ascending=False).reset_index()
-
+    x["Gold"] = x["Gold"].astype(int)
+    x["Silver"] = x["Silver"].astype(int)
+    x["Bronze"] = x["Bronze"].astype(int)
     x["total"] = x["Gold"] + x["Silver"] + x["Bronze"]
     return x
 
